@@ -37,7 +37,7 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "🔑 Key mới 100%, bảo hành theo thời hạn\n"
             "🛠️ Hỗ trợ setup từ A → Z\n"
             "💬 Support 1–1 trong quá trình sử dụng\n\n"
-            "📲 Admin: @dct\\_overlordx404",
+            "📲 Admin: @dct\\_overlordx",
             parse_mode="Markdown"
 
         )
