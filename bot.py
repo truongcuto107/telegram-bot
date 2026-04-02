@@ -180,4 +180,47 @@ app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
 
+# =======================
+# 🟢 Web server giả (Render không kill)
+# =======================
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot is running")
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), Handler)
+    print(f"Web server running on port {port}")
+    server.serve_forever()
+
+threading.Thread(target=run_web).start()
+
+
+# =======================
+# 🟢 Keep-alive (chống sleep)
+# =======================
+import time
+import requests
+
+def keep_alive():
+    port = int(os.environ.get("PORT", 10000))
+    url = f"http://localhost:{port}"
+    while True:
+        try:
+            requests.get(url)
+        except:
+            pass
+        time.sleep(300)  # 5 phút
+
+threading.Thread(target=keep_alive).start()
+
+
+# =======================
+# 🟢 Chạy bot
+# =======================
 app.run_polling(drop_pending_updates=True)
