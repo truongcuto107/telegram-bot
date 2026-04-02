@@ -30,7 +30,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=reply_markup
     )
 
-# xử lý tin nhắn thường (keyword)
+# xử lý tin nhắn thường
 async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not update.message:
         return
@@ -39,148 +39,131 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if "mô tả fluorite" in text:
         await update.message.reply_text(
-            """📦 **FLUORITE iOS – BẢN TỐI ƯU CAO CẤP**
+            """📦 <b>FLUORITE iOS – BẢN TỐI ƯU CAO CẤP</b>
 
----
 
-👀 **ESP Features:**
+👀 <b>ESP Features:</b>
 🔹 Line / Box / Health / Distance hiển thị đầy đủ
 🔹 Quan sát đối thủ chính xác, rõ ràng
 
-🎯 **Aim System:**
+🎯 <b>Aim System:</b>
 🔸 FOV linh hoạt
 🔸 Silent Aim mượt mà, khó phát hiện
 
-⚡️ **Hiệu năng & tối ưu:**
+⚡️ <b>Hiệu năng & tối ưu:</b>
 🚀 Tăng độ chính xác & phản hồi nhanh
-🗺️ Hỗ trợ **Antiban toàn bộ map**
+🗺️ Hỗ trợ <b>Antiban toàn bộ map</b>
 
----
 
-✨ **Tính năng bổ sung:**
+✨ <b>Tính năng bổ sung:</b>
 🛡️ Ẩn màn hình khi sử dụng (tránh bị phát hiện)
 📱 Tương thích mọi thiết bị iOS
 ⚙️ Hoạt động ổn định – tối ưu hiệu năng tối đa
 
----
 
-🎁 **Quyền lợi khi sử dụng:**
+🎁 <b>Quyền lợi khi sử dụng:</b>
 🔑 Key mới 100% – bảo hành theo thời hạn
 ♻️ Bao reset trong thời gian sử dụng
-🛠️ Hỗ trợ setup từ **A → Z**
-💬 Support **1–1** xuyên suốt quá trình sử dụng
+🛠️ Hỗ trợ setup từ <b>A → Z</b>
+💬 Support <b>1–1</b> xuyên suốt quá trình sử dụng
 
----
 
-📲 **Liên hệ Admin:**
+📲 <b>Liên hệ Admin:</b>
 👉 @dct_overlordx
 💬 Nhận key + file IPA + hỗ trợ cài đặt nhanh chóng
 
----
 
-🔥 *Trải nghiệm mượt – ổn định – an toàn!*""",
-            parse_mode="Markdown",
-            reply_markup=admin_button  # thêm nút admin
+🔥 <i>Trải nghiệm mượt – ổn định – an toàn!</i>""",
+            parse_mode="HTML",
+            reply_markup=admin_button
         )
 
     elif "giá" in text:
         await update.message.reply_text(
-            """🍎 **FLUORITE iPA – ANTIBAN | SAFE MAIN ACCOUNT**
+            """🍎 <b>FLUORITE iPA – ANTIBAN | SAFE MAIN ACCOUNT</b>
 
----
 
-💎 **Bảng giá thuê Key:**
-🌟 **90K** / 1 ngày
-🌟 **200K** / 7 ngày
-🌟 **350K** / 31 ngày
+💎 <b>Bảng giá thuê Key:</b>
+🌟 <b>90K</b> / 1 ngày
+🌟 <b>200K</b> / 7 ngày
+🌟 <b>350K</b> / 31 ngày
 
----
 
-🔓 **ACC CLONE LV5 (sẵn sàng sử dụng):**
-🌟 **3K / 1 acc**
+🔓 <b>ACC CLONE LV5 (sẵn sàng sử dụng):</b>
+🌟 <b>3K / 1 acc</b>
 
----
 
-💳 **Thanh toán:**
+💳 <b>Thanh toán:</b>
 🏦 Bank Việt Nam ✅ Nhanh – tiện – an toàn
 
----
 
-🎯 **Ưu đãi & hỗ trợ:**
-♻️ Thuê Key **bao reset** trong thời gian sử dụng
+🎯 <b>Ưu đãi & hỗ trợ:</b>
+♻️ Thuê Key <b>bao reset</b> trong thời gian sử dụng
 ⚡ Hỗ trợ nhanh chóng – setup tận tình
 💬 Tư vấn chọn gói phù hợp
 
----
 
-📲 **Liên hệ Admin:**
+📲 <b>Liên hệ Admin:</b>
 👉 @dct_overlordx
 🔥 Nhận Key + Acc + hỗ trợ đầy đủ từ A → Z
 
----
 
-🚀 *Ổn định – an toàn – trải nghiệm mượt mà!*""",
-            parse_mode="Markdown",
+🚀 <i>Ổn định – an toàn – trải nghiệm mượt mà!</i>""",
+            parse_mode="HTML",
             reply_markup=admin_button
         )
 
     elif "admin" in text:
         await update.message.reply_text(
-            """📞 **LIÊN HỆ ADMIN**
+            """📞 <b>LIÊN HỆ ADMIN</b>
 
 💬 Hỗ trợ nhanh chóng – phản hồi tận tình
 🛠️ Giải đáp mọi thắc mắc & hướng dẫn cài đặt
 🔑 Cung cấp Key, file IPA & Acc Clone
 
----
 
-👉 **Admin:** @dct_overlordx
+👉 <b>Admin:</b> @dct_overlordx
 
----
 
-⚡ *Inbox ngay để được hỗ trợ chi tiết từ A → Z!*""",
-            parse_mode="Markdown",
+⚡ <i>Inbox ngay để được hỗ trợ chi tiết từ A → Z!</i>""",
+            parse_mode="HTML",
             reply_markup=admin_button
         )
 
     elif "hướng dẫn cài đặt" in text:
         await update.message.reply_text(
-            """📥 **HƯỚNG DẪN CÀI ĐẶT IPA (iOS)**
+            """📥 <b>HƯỚNG DẪN CÀI ĐẶT IPA (iOS)</b>
 
-🔧 **Phương pháp:** Cài IPA qua **ESign + Chứng chỉ unBan (1 năm)**
+🔧 <b>Phương pháp:</b> Cài IPA qua <b>ESign + Chứng chỉ unBan (1 năm)</b>
 
----
 
-📌 **Bước 1: Tải ứng dụng ESign**
-👉 Link download: https://khoindvn.io.vn/#app
+📌 <b>Bước 1:</b> Tải ứng dụng ESign
+👉 https://khoindvn.io.vn/#app
 
-📌 **Bước 2: Mua & nhập chứng chỉ**
-💳 Link mua chứng chỉ + hướng dẫn nhập: https://muacert.com
+📌 <b>Bước 2:</b> Mua & nhập chứng chỉ
+💳 https://muacert.com
 
----
 
-✅ **Sau khi hoàn thành 2 bước trên:**
+✅ <b>Sau khi hoàn thành 2 bước trên:</b>
 🎬 Truy cập link sau để xem video hướng dẫn chi tiết cách:
 
-* Ký file IPA
-* Cài đặt ứng dụng
-* Sử dụng ESign
+• Ký file IPA  
+• Cài đặt ứng dụng  
+• Sử dụng ESign  
 
-👉 Link video: *(thêm link tại đây)*
+👉 Link video: (thêm link tại đây)
 
----
 
-📞 **Hỗ trợ & nhận file IPA:**
-💬 Liên hệ **Admin** để:
+📞 <b>Hỗ trợ & nhận file IPA:</b>
+💬 Liên hệ <b>Admin</b> để:
 
-* Được hỗ trợ cài đặt nhanh chóng
-* Nhận file **IPA Fluorite** mới nhất
-* Giải đáp mọi thắc mắc trong quá trình sử dụng
+• Được hỗ trợ cài đặt nhanh chóng  
+• Nhận file <b>IPA Fluorite</b> mới nhất  
+• Giải đáp mọi thắc mắc  
 
----
 
-✨ *Lưu ý:* Làm đúng từng bước để tránh lỗi khi cài đặt nhé!""",
-            parse_mode="Markdown",
+✨ <i>Lưu ý: Làm đúng từng bước để tránh lỗi khi cài đặt nhé!</i>""",
+            parse_mode="HTML",
             disable_web_page_preview=True,
             reply_markup=admin_button
         )
