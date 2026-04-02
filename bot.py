@@ -1,4 +1,4 @@
-from telegram import Update, ReplyKeyboardMarkup
+from telegram import Update, ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
 import os
@@ -14,6 +14,11 @@ keyboard = [
     ["📞 Admin", "📥 Hướng dẫn cài đặt"]
 ]
 reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
+
+# Nút admin bấm mở chat
+admin_button = InlineKeyboardMarkup([
+    [InlineKeyboardButton("📞 Liên hệ Admin", url="https://t.me/dct_overlordx")]
+])
 
 # /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -75,7 +80,7 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 🔥 *Trải nghiệm mượt – ổn định – an toàn!*""",
             parse_mode="Markdown",
-            reply_markup=reply_markup
+            reply_markup=admin_button  # thêm nút admin
         )
 
     elif "giá" in text:
@@ -116,7 +121,7 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 🚀 *Ổn định – an toàn – trải nghiệm mượt mà!*""",
             parse_mode="Markdown",
-            reply_markup=reply_markup
+            reply_markup=admin_button
         )
 
     elif "admin" in text:
@@ -135,7 +140,7 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 ⚡ *Inbox ngay để được hỗ trợ chi tiết từ A → Z!*""",
             parse_mode="Markdown",
-            reply_markup=reply_markup
+            reply_markup=admin_button
         )
 
     elif "hướng dẫn cài đặt" in text:
@@ -177,7 +182,7 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ✨ *Lưu ý:* Làm đúng từng bước để tránh lỗi khi cài đặt nhé!""",
             parse_mode="Markdown",
             disable_web_page_preview=True,
-            reply_markup=reply_markup
+            reply_markup=admin_button
         )
 
     else:
@@ -190,6 +195,6 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 app = ApplicationBuilder().token(TOKEN).build()
 
 app.add_handler(CommandHandler("start", start))
-app.add_handler(MessageHandler(filters.TEXT, reply))
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
 
 app.run_polling()
